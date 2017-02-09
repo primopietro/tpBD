@@ -10,21 +10,34 @@ package tp1bd;
  * @author montamal
  */
 public class Pixel {
+
     protected Integer[] pixel;
-    protected int size;    
-     
-    public Pixel(int taille) {        
-        this.size = taille; 
+    protected int size;
+
+    public Pixel(int taille) {
+        this.size = taille;
         this.pixel = new Integer[size];
-    } 
-    
-    public int getInt()
-    {
-        return this.pixel[0];
     }
-    
-    public int getInt(int ind)
-    {
+
+    /**
+     * Utilisé pour convertir le pixel en int
+     *
+     * @param ind pour l'indice dans le tableau de 3
+     */
+    public int getInt(int ind) {
         return this.pixel[ind];
     }
+
+    public boolean comparer(Pixel p) {
+        if (this.size == p.size) {
+            for (int i = 0; i < size; i++) {
+                if (this.pixel[i] != p.pixel[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
 }
