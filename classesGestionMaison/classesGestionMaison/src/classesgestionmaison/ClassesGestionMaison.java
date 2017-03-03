@@ -20,12 +20,15 @@ public class ClassesGestionMaison {
      
     GestionMaison maisons = new GestionMaison();
     GestionTotal.initMaisons(maisons);
-   Maison maison2 =  new Maison();
-   maison2 = maisons.getMaison(0);
-   maison2.setRue("GODBLESS");
-   maison2.setCodePostal("666667");
-   GestionTotal.addMaison(maisons, maison2);
-        maison2.show();
+//   Maison maison2 =  new Maison();
+//   maison2 = maisons.getMaison(0);
+//   maison2.setRue("GODBLESS");
+//   maison2.setCodePostal("666667");
+//   GestionTotal.addMaison(maisons, maison2);
+//        maison2.show();
+
+Maison maison3 = maisons.getMaison(1);
+GestionTotal.removeMaison(maisons, maison3);
     }
     
 }

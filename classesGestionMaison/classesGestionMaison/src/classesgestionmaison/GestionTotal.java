@@ -15,9 +15,6 @@ import java.sql.SQLException;
  * @author Pietro
  */
 public class GestionTotal {
-    private GestionProprio proprietaires;
-    private GestionCourtier courtiers;
-    private GestionProprio proprios;
     
    public GestionTotal(){
          
@@ -32,7 +29,7 @@ public class GestionTotal {
 
             ResultSet resultSet = st.executeQuery();
 
-            if (resultSet.next()) {
+            while (resultSet.next()) {
                Maison maisonTemporaire = new Maison();
                
              maisonTemporaire.setNbImmeuble(resultSet.getInt(2));
@@ -68,7 +65,6 @@ public class GestionTotal {
         }
    }
    
-
    public static void addMaison(GestionMaison maisons, Maison maison){
       
        try {
@@ -86,7 +82,6 @@ public class GestionTotal {
             st.setInt(4, maison.getNombreReparations());
             st.setString(5, maison.getCodePostal());
             
-            
             int nb_ville =0;
             
            String queryVille = "SELECT * FROM Ville WHERE nomVille =?";
@@ -103,7 +98,6 @@ public class GestionTotal {
             
             st.setInt(6, nb_ville);
             
-            
             st.setDouble(7, maison.getEchauffement());
             st.setDouble(8, maison.getEau());
             st.setDouble(9, maison.getElectricite());
@@ -118,12 +112,35 @@ public class GestionTotal {
             catch (SQLException ex) {
                 System.out.println(ex);
         }
-
-           
-            
+    
             conn.close();
 
         } catch (SQLException ex) {
         }
    }
+
+   public static void removeMaison(GestionMaison maisons, Maison maison){
+       try {
+
+            Connection conn = SimpleDataSource.getConnection();
+            String query = "DELETE FROM Maison "
+                    + "WHERE codePostal = ?";
+            PreparedStatement st = conn.prepareStatement(query);
+            st.setString(1, maison.getCodePostal());
+
+
+            try{
+                 st.executeUpdate();
+            }
+            catch (SQLException ex) {
+                System.out.println(ex);
+        }
+    
+            maisons.removeMaison(maison);
+            conn.close();
+
+        } catch (SQLException ex) {
+        }
+   }
+   
 }
