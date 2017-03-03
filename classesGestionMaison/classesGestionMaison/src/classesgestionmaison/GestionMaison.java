@@ -5,6 +5,9 @@
  */
 package classesgestionmaison;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -15,14 +18,10 @@ public class GestionMaison {
 
     private ArrayList<Maison> listeMaisons;
     
-    private GestionMaison(){
-        init();
+    public GestionMaison(){
+      listeMaisons = new ArrayList<Maison>();
     }
     
-    public void init(){
-        //Requete SQL load maisons dans la liste
-    }
-
     public Maison getMaison(int index){
         return listeMaisons.get(index);
     }

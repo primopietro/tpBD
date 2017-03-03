@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package classesgestionmaison;
-
+import java.io.IOException;
 /**
  *
  * @author Pietro
@@ -14,8 +14,18 @@ public class ClassesGestionMaison {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws IOException, ClassNotFoundException  {
+        
+     SimpleDataSource.init("bd.properties");
+     
+    GestionMaison maisons = new GestionMaison();
+    GestionTotal.initMaisons(maisons);
+   Maison maison2 =  new Maison();
+   maison2 = maisons.getMaison(0);
+   maison2.setRue("GODBLESS");
+   maison2.setCodePostal("666667");
+   GestionTotal.addMaison(maisons, maison2);
+        maison2.show();
     }
     
 }

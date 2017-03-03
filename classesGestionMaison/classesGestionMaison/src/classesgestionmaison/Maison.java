@@ -15,12 +15,12 @@ public class Maison {
         return Maison.create();
     }
 
-    private int nbImmeuble;
-private int rue	;
+private int nbImmeuble;
+private String rue	;
 private int annee;
 private int nombreReparations;
 private String codePostal;
-private int id_ville;
+private String ville;
 private double echauffement;
 private double eau;
 private double electricite;
@@ -31,11 +31,11 @@ private double entretienMenager;
 
 public Maison(){
      nbImmeuble =0;
- rue	=0;
+ rue	=null;
  annee=0;
  nombreReparations=0;
  codePostal=null;
- id_ville=0;
+ ville=null;
  echauffement=0;
  eau=0;
  electricite=0;
@@ -53,11 +53,11 @@ denegeur=0;
         this.nbImmeuble = nbImmeuble;
     }
 
-    public int getRue() {
+    public String getRue() {
         return rue;
     }
 
-    public void setRue(int rue) {
+    public void setRue(String rue) {
         this.rue = rue;
     }
 
@@ -85,12 +85,12 @@ denegeur=0;
         this.codePostal = codePostal;
     }
 
-    public int getId_ville() {
-        return id_ville;
+    public String getville() {
+        return ville;
     }
 
-    public void setId_ville(int id_ville) {
-        this.id_ville = id_ville;
+    public void setVille(String ville) {
+        this.ville = ville;
     }
 
     public double getEchauffement() {
@@ -147,6 +147,23 @@ denegeur=0;
 
     public void setEntretienMenager(double entretienMenager) {
         this.entretienMenager = entretienMenager;
+    }
+    
+    public void show(){
+        System.out.println("nbImmeuble : "+nbImmeuble);
+        System.out.println("rue : "+rue);
+        System.out.println("annee : "+annee);
+        System.out.println("nombreReparations : "+ nombreReparations);
+        System.out.println("codePostal : "+ codePostal);
+        System.out.println("ville : "+ ville+" $");
+        System.out.println("echauffement : "+ echauffement+" $");
+        System.out.println("eau : "+ eau+" $");
+        System.out.println("electricite : "+ electricite+" $");
+        System.out.println("assurance : "+ assurance+" $");
+        System.out.println("impots : "+ impots+" $");
+        System.out.println("denegeur : "+ denegeur+" $");
+        System.out.println("entretienMenager : "+ entretienMenager+" $");
+        
     }
    
 }
