@@ -35,21 +35,34 @@ public class GestionMaison {
         listeMaisons.remove(index);        
         //Requete SQL enleve maison dans bd
     }
-    
+    public int getIdLastMaison(){
+        return listeMaisons.get(listeMaisons.size() -1).getId_maison();
+    }
     //Faut tester bien cette fonction
     public void removeMaison(Maison maison){
         listeMaisons.remove(maison);
         //Requete SQL enleve maison dans bd
     }
     //Faut tester bien cette fonction
-    public void modifierMaison(Maison maison){
-        listeMaisons.remove(maison);
+    public void modifierMaison(Maison maison, int indiceMaison){
+        listeMaisons.set(indiceMaison, maison);
         //Requete SQL enleve maison dans bd
     }
         
     public int getIndiceMaison(Maison maison){
         return listeMaisons.indexOf(maison);
     }
+    
+     public Maison getMaisonById(int  id){
+         
+         for(Maison maison : listeMaisons){
+             if(maison.getId_maison() == id){
+                 return maison;
+             }
+         }
+        return null;
+    }
+    
     
     public int getIdMaison(Maison maison){
         //Requete SQL trouve l'id ou retourne 0
@@ -62,5 +75,7 @@ public class GestionMaison {
         
         return 0;
     }
+    
+
  }
 

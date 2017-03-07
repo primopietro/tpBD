@@ -10,6 +10,7 @@ package classesgestionmaison;
  * @author Pietro
  */
 public class Personne {
+    private int id_personne;
 private String nom;				
 private String prenom;				
 private int telephone;			
@@ -26,6 +27,13 @@ private boolean courtier;
   courtier  = false;
     }
     
+    public int getId_personne() {
+        return id_personne;
+    }
+
+    public void setId_personne(int id_personne) {
+        this.id_personne = id_personne;
+    }
     public String getNom() {
         return nom;
     }
@@ -73,8 +81,15 @@ private boolean courtier;
     public void setCourtier(boolean courtier) {
         this.courtier = courtier;
     }
-    
 
+    public void show(){
+       System.out.println("nom :" + nom);			
+   System.out.println("prenom :" + prenom); 				
+   System.out.println("telephone :" + telephone); 		
+   System.out.println("acheteur :" + acheteur); 			
+   System.out.println("proprietaire :" + proprietaire);                    
+   System.out.println("courtier :" + courtier);  
+    }
 
 
 }

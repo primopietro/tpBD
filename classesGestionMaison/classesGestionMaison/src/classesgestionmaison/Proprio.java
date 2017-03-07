@@ -10,29 +10,29 @@ package classesgestionmaison;
  * @author Pietro
  */
 public class Proprio {
- private Maison maison;
-    private Proprietaire proprietaire;
+ private int indiceMaison;
+    private int indicePrietaire;
     private double montantPropriete;
     
     public Proprio(){
-       maison = new Maison();
-       proprietaire= new Proprietaire();
+       indiceMaison = 0;
+       indicePrietaire= 0;
        montantPropriete =0;
     }
-    public Maison getMaison() {
-        return maison;
+    public Maison getMaison(GestionMaison maisons) {
+        return maisons.getMaison(indiceMaison);
+    }
+    public Personne getPersonne(GestionPersonnes personnes) {
+        return personnes.getPersonne(indicePrietaire);
     }
 
     public void setMaison(Maison maison) {
-        this.maison = maison;
+        //this.maison = maison;
     }
 
-    public Proprietaire getProprietaire() {
-        return proprietaire;
-    }
 
     public void setProprietaire(Proprietaire proprietaire) {
-        this.proprietaire = proprietaire;
+        //this.proprietaire = proprietaire;
     }
 
     public double getMontantPropriete() {

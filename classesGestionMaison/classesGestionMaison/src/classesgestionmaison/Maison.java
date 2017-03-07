@@ -15,6 +15,15 @@ public class Maison {
         return Maison.create();
     }
 
+private int id_maison;
+
+    public int getId_maison() {
+        return id_maison;
+    }
+
+    public void setId_maison(int id_maison) {
+        this.id_maison = id_maison;
+    }
 private int nbImmeuble;
 private String rue	;
 private int annee;

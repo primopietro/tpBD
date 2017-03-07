@@ -15,8 +15,9 @@ public class GestionProprio {
 
     private ArrayList<Proprio> listeProprios;
     
-    private GestionProprio(){
+    public GestionProprio(){
         init();
+       listeProprios =  new   ArrayList<Proprio>();
     }
     
     public void init(){

@@ -16,6 +16,7 @@ public class GestionLocation {
     
     private ArrayList<Location> listeLocations;
     public GestionLocation(){
+        listeLocations = new ArrayList<Location>();
         init();
     }
     
@@ -27,7 +28,7 @@ public class GestionLocation {
         return listeLocations.get(index);
     }
     
-    public void addPLocation(Location location){
+    public void addLocation(Location location){
         listeLocations.add(location);
         //Requete SQL ajout proprio dans bd
     }
@@ -37,15 +38,17 @@ public class GestionLocation {
         //Requete SQL enleve proprio dans bd
     }
     
+    public int getIdLastLocation(){
+        return listeLocations.get(listeLocations.size() -1).getId_location();
+    }
     //Faut tester bien cette fonction
     public void removeLocation(Location location){
         listeLocations.remove(location);
         //Requete SQL enleve proprio dans bd
     }
     //Faut tester bien cette fonction
-    public void modifierLocation(Location location){
-        listeLocations.remove(location);
-        //Requete SQL enleve proprio dans bd
+    public void modifierLocation(Location location, int indice){
+        listeLocations.set(indice, location);
     }
         
      public int getIndiceLocation(Location location){
@@ -75,4 +78,5 @@ public class GestionLocation {
         
         return 0;
     }
+
 }

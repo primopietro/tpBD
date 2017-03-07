@@ -18,17 +18,24 @@ public class ClassesGestionMaison {
         
      SimpleDataSource.init("bd.properties");
      
-    GestionMaison maisons = new GestionMaison();
-    GestionTotal.initMaisons(maisons);
-//   Maison maison2 =  new Maison();
-//   maison2 = maisons.getMaison(0);
-//   maison2.setRue("GODBLESS");
-//   maison2.setCodePostal("666667");
-//   GestionTotal.addMaison(maisons, maison2);
-//        maison2.show();
+     GestionMaison maisons = new GestionMaison();
+     GestionPersonnes personnes = new GestionPersonnes();
+     
+     GestionLocation locations = new GestionLocation();
+     
+     GestionImmobiliere.initMaisons(maisons);
+     GestionImmobiliere.initPersonnes(personnes);
+     
+     Personne pTemp = personnes.getPersonne(0);
+    
+  GestionImmobiliere.removePersonne(personnes, pTemp);
+  System.out.println("Fin du programme");
+   
 
-Maison maison3 = maisons.getMaison(1);
-GestionTotal.removeMaison(maisons, maison3);
+
+    
+    
+
     }
     
 }
