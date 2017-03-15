@@ -10,33 +10,36 @@ package classesgestionmaison;
  * @author Pietro
  */
 public class OffreAchat {
-  private Courtier courtier;
-    private Acheteur achteteur;
+
+    private int id_offre;
+    private Personne acheteur;
     private Maison maison;
     private String date;
     private double valeurOffre;
-    public OffreAchat(){
-        courtier = new Courtier();
-        achteteur = new Acheteur();
+
+    public OffreAchat() {
+        id_offre=0;
+        acheteur = new Personne();
         maison = new Maison();
         date = null;
-        valeurOffre =0;
-        
-    }
-    public Courtier getCourtier() {
-        return courtier;
+        valeurOffre = 0;
     }
 
-    public void setCourtier(Courtier courtier) {
-        this.courtier = courtier;
+    public int getId_offre() {
+        return id_offre;
     }
 
-    public Acheteur getAchteteur() {
-        return achteteur;
+    public void setId_offre(int id_offre) {
+        this.id_offre = id_offre;
     }
 
-    public void setAchteteur(Acheteur achteteur) {
-        this.achteteur = achteteur;
+
+    public Personne getAchteteur() {
+        return acheteur;
+    }
+
+    public void setAchteteur(Personne achteteur) {
+        this.acheteur = achteteur;
     }
 
     public Maison getMaison() {
@@ -62,7 +65,6 @@ public class OffreAchat {
     public void setValeurOffre(double valeurOffre) {
         this.valeurOffre = valeurOffre;
     }
-    
-  
-    
+
+
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2017 at 03:17 AM
+-- Generation Time: Mar 15, 2017 at 03:34 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -250,8 +250,8 @@ ALTER TABLE `maison`
 --
 ALTER TABLE `offreachat`
   ADD PRIMARY KEY (`id_offreAchat`),
-  ADD KEY `maisonFK` (`id_maison`),
-  ADD KEY `acheteurFK` (`id_acheteur`);
+  ADD KEY `deleteCascadeMO` (`id_maison`),
+  ADD KEY `deleteCascadePO` (`id_acheteur`);
 
 --
 -- Indexes for table `personne`
@@ -279,8 +279,8 @@ ALTER TABLE `province`
 --
 ALTER TABLE `vente`
   ADD PRIMARY KEY (`id_vente`),
-  ADD KEY `maisonFK` (`id_maison`),
-  ADD KEY `courtierFK` (`id_courtier`);
+  ADD KEY `deleteCascadeMV` (`id_maison`),
+  ADD KEY `deleteCascadePV` (`id_courtier`);
 
 --
 -- Indexes for table `ville`
@@ -308,7 +308,7 @@ ALTER TABLE `maison`
 -- AUTO_INCREMENT for table `offreachat`
 --
 ALTER TABLE `offreachat`
-  MODIFY `id_offreAchat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_offreAchat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `personne`
 --
@@ -323,7 +323,7 @@ ALTER TABLE `proprietaire`
 -- AUTO_INCREMENT for table `vente`
 --
 ALTER TABLE `vente`
-  MODIFY `id_vente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_vente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `ville`
 --
@@ -339,6 +339,20 @@ ALTER TABLE `ville`
 ALTER TABLE `location`
   ADD CONSTRAINT `deleteCascadeMaison` FOREIGN KEY (`id_maison`) REFERENCES `maison` (`id_maison`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `deleteCascadePersonne` FOREIGN KEY (`id_locateur`) REFERENCES `personne` (`id_personne`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `offreachat`
+--
+ALTER TABLE `offreachat`
+  ADD CONSTRAINT `deleteCascadeMO` FOREIGN KEY (`id_maison`) REFERENCES `maison` (`id_maison`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `deleteCascadePO` FOREIGN KEY (`id_acheteur`) REFERENCES `personne` (`id_personne`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `vente`
+--
+ALTER TABLE `vente`
+  ADD CONSTRAINT `deleteCascadeMV` FOREIGN KEY (`id_maison`) REFERENCES `maison` (`id_maison`),
+  ADD CONSTRAINT `deleteCascadePV` FOREIGN KEY (`id_courtier`) REFERENCES `personne` (`id_personne`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

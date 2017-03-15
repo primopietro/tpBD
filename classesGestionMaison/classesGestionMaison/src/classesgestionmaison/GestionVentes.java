@@ -15,6 +15,7 @@ public class GestionVentes {
     private ArrayList<Vente> listeVentes;
     
     public GestionVentes(){
+        listeVentes = new ArrayList<Vente>();
         init();
     }
     
@@ -22,57 +23,41 @@ public class GestionVentes {
         //Requete SQL load ventes dans la liste
     }
     
-     public Vente getProprio(int index){
+     public Vente getVente(int index){
         return listeVentes.get(index);
     }
     
-    public void addProprio(Vente vente){
+    public void addVente(Vente vente){
         listeVentes.add(vente);
         //Requete SQL ajout proprio dans bd
     }
     
-    public void removeProprio(int index){
+    public void removeVente(int index){
         listeVentes.remove(index);        
         //Requete SQL enleve proprio dans bd
     }
     
     //Faut tester bien cette fonction
-    public void removeProprio(Vente vente){
+    public void removeVente(Vente vente){
         listeVentes.remove(vente);
         //Requete SQL enleve proprio dans bd
     }
     //Faut tester bien cette fonction
-    public void modifierProprio(Vente vente){
-        listeVentes.remove(vente);
-        //Requete SQL enleve proprio dans bd
+    public void modifierVente(Vente vente, int indiceVente){
+        listeVentes.set(indiceVente, vente);
     }
         
-     public int getIndiceProprio(Vente vente){
+     public int getIndiceVente(Vente vente){
         return listeVentes.indexOf(vente);
     }
-    public int getIndiceVente(Maison maison){
-        return listeVentes.indexOf(maison);
-    }
-    
-
-
-    public int getIdVente(Vente vente){
-        //Requete SQL trouve l'id ou retourne 0
-        
-        return 0;
-    }
      
-    public int getIdVente(Proprio proprio){
-        //Requete SQL trouve l'id ou retourne 0
-        
-        return 0;
-    }
-    
-    public int getIdVente(int index){
-        Vente venteAChercher = listeVentes.get(index);
-        //Requete SQL trouve l'id ou retourne 0
-        
-        return 0;
-    }
+     public int getIdLastVente(){
+         return listeVentes.get(listeVentes.size() -1).getId_Vente();
+     }
+
+     public int getSizeVentes(){
+         return listeVentes.size();
+     }
+
     
 }

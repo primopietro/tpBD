@@ -79,4 +79,8 @@ public class GestionLocation {
         return 0;
     }
 
+    
+    public int getSizeLocation(){
+        return listeLocations.size();
+    }
 }
